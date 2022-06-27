@@ -15,7 +15,6 @@ class MainWindow(QMainWindow):
     def ui_connection(self):
         self.setIDButton = self.ui.setIDButton
         self.setIDButton.clicked.connect(self.buttonClick)
-        
     def buttonClick(self):
         IDlineEditText = self.ui.IDlineEdit.text()
         if(not IDlineEditText.isnumeric()):
