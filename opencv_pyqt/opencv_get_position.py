@@ -15,13 +15,11 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.ui_connection()
         
-        
     def ui_connection(self):
         image = cv2.imread(self.imageFile)
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         qImage = QImage(image, image.shape[1],image.shape[0],image.strides[0], QImage.Format_RGB888)
         self.ui.imageLabel.setPixmap(QPixmap.fromImage(qImage))
-        #imageSize = Qsize(image.shape[1],image.shape[0])
         self.ui.imageLabel.setFixedSize(image.shape[1],image.shape[0])
     
 if __name__ == "__main__":

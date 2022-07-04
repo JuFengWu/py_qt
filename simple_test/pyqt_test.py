@@ -4,7 +4,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import sys
 from mainwindow import Ui_Dialog
-
+import time
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -15,7 +15,9 @@ class MainWindow(QMainWindow):
     def ui_connection(self):
         self.setIDButton = self.ui.setIDButton
         self.setIDButton.clicked.connect(self.buttonClick)
+        
     def buttonClick(self):
+        time.sleep(5) #假設動作很久，睡5秒
         IDlineEditText = self.ui.IDlineEdit.text()
         if(not IDlineEditText.isnumeric()):
             message_box = QMessageBox()
