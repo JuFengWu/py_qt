@@ -21,8 +21,8 @@ class MainWindow(QMainWindow):
         IDlineEditText = self.ui.IDlineEdit.text()
         if(not IDlineEditText.isnumeric()):
             message_box = QMessageBox()
-            message_box.setWindowTitle ("error")
-            message_box.setInformativeText("please enter a interger number")
+            message_box.setWindowTitle (self.tr("error"))
+            message_box.setInformativeText(self.tr("please enter a interger number"))
             message_box.exec_()
         else:
             self.ui.IDlabel.setText(IDlineEditText)
