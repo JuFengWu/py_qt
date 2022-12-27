@@ -1,4 +1,3 @@
-
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -10,22 +9,19 @@ import threading
 
 number = 0
 
-class RunningThread(QThread):
-    def __init__(self, parent):
-        super(RunningThread, self).__init__(parent=parent)
-    def run(self):
-        i = 0
-        while(i<5):
-            process_show(i)
-            sleep(1)
-            i = i + 1
-        process_show(i)
+def count_sheep():
+    global number
+    number += 1
+    process_show(number)
+    if(number):
+        timer.stop()
+        number = 0
  
 def process_show(currentNumber):
     ui.progressBar.setValue(currentNumber*20) 
 
 def click_button():
-    thread.start()
+    timer.start(500)
     ui.label_2.setText("start running")        
         
 app = QApplication(sys.argv)
@@ -35,8 +31,8 @@ ui.setupUi(widget)
 ui.pushButton.clicked.connect(click_button)
 
 
-thread = RunningThread(widget)
-
+timer = QTimer()
+timer.timeout.connect(count_sheep)
 
 widget.show()
 sys.exit(app.exec_())    
