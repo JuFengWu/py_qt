@@ -9,7 +9,6 @@ import time
 
 
 def buttonClick():
-    
     widget2.show()
 
 app = QApplication(sys.argv)
