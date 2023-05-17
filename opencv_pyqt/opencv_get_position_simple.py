@@ -18,9 +18,11 @@ if __name__ == "__main__":
     imageFile = "./Lenna.jpg"
     image = cv2.imread(imageFile)
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-    qImage = QImage(image, image.shape[1],image.shape[0],image.strides[0], QImage.Format_RGB888)
+    height, width, channel = image.shape
+    bytesPerline = 3 * width
+    qImage = QImage(image, width,height,bytesPerline, QImage.Format_RGB888)
     ui.imageLabel.setPixmap(QPixmap.fromImage(qImage))
-    ui.imageLabel.setFixedSize(image.shape[1],image.shape[0])
+    ui.imageLabel.setFixedSize(width,height)
 
     widget.show()
     sys.exit(app.exec_())
