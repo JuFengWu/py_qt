@@ -8,10 +8,12 @@ from mainwindow import Ui_Dialog
 from time import sleep
 import threading
     
-    
+#this will have problem
 
 def run():
-   sleep(1)
+   for i in range(10):
+     sleep(1)
+     ui.label_2.setText(str(i)) 
    ui.label_2.setText("end run")  
 def click_button():
     runningThread = threading.Thread(target = run)   
