@@ -39,11 +39,9 @@ class MyFigureCanvas(FigureCanvas):
         self.axes.plot(x, y)
     def test2(self,x,y):
         self.axes.plot(x, y)
-        
+    
+
 app = QApplication(sys.argv)
-t=QTranslator()
-t.load('tra_chinese.qm')
-app.installTranslator(t)
 widget = QWidget()
 ui = Ui_Dialog()
 ui.setupUi(widget)
