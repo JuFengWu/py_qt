@@ -10,9 +10,10 @@ import time
 
 def buttonClick():
     ui.lineEdit.setText("hello\naaa")
+    print(ui.lineEdit.text())
 def buttonClick2():
     ui.textEdit.setText("aaa\nbbb")
-
+    print(ui.textEdit.toPlainText())
         
 app = QApplication(sys.argv)
 t=QTranslator()
